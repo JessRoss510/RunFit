@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Kilómetros</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #612891;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+        h1 {
+            color: #000000;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: rgb(0, 0, 0);
+            background-color: #bed63a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background-color: #bed63a;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #000000;
+        }
+    </style>
+    <script>
+        function calcularKilometros() {
+            let peso = parseFloat(document.getElementById("peso").value);
+            if (!isNaN(peso) && peso > 0) {
+                let km = peso * 0.1; // Fórmula simple: 0.1 km por kg
+                document.getElementById("resultado").textContent = `Debes recorrer aproximadamente ${km.toFixed(2)} km.`;
+            } else {
+                document.getElementById("resultado").textContent = "Por favor, ingresa un peso válido.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Kilómetros</h1>
+    <label for="peso">Ingresa tu peso (kg):</label>
+    <input type="number" id="peso" placeholder="Ej: 70">
+    <button class="button" onclick="calcularKilometros()">Calcular</button>
+    <p id="resultado"></p>
+    <a href="index.html" class="button">Volver</a>
+</body>
+</html>
